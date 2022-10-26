@@ -1,4 +1,5 @@
 import { StatusBar } from "expo-status-bar"
+import { Text } from "react-native"
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context"
 
 import Navigation from "@/components/navigation/Navigation"
@@ -10,9 +11,7 @@ export default function App() {
 		<>
 			<AuthProvider>
 				<SafeAreaProvider>
-					<SafeAreaView>
-						<Navigation />
-					</SafeAreaView>
+					<Navigation />
 				</SafeAreaProvider>
 			</AuthProvider>
 			<StatusBar style='light' />

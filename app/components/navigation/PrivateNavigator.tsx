@@ -3,8 +3,7 @@ import { FC } from "react"
 
 import { useAuth } from "@/hooks/useAuth"
 
-import Auth from "../screens/auth/Auth"
-import Screen404 from "../screens/system/Screen404"
+import { Auth, Screen404 } from "../screens"
 
 import { TypeRootStackParamList } from "./navigation.types"
 import { routes } from "./user.routes"

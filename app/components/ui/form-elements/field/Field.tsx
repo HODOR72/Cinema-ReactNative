@@ -1,5 +1,5 @@
 import cn from "clsx"
-import React, { FC } from "react"
+import React from "react"
 import { Controller } from "react-hook-form"
 import { Text, TextInput, View } from "react-native"
 
