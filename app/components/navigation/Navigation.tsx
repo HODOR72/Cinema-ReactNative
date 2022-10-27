@@ -6,6 +6,8 @@ import React, { FC, useEffect, useState } from "react"
 
 import { useAuth } from "@/hooks/useAuth"
 
+import { useCheckAuth } from "@/providers/auth/useCheckAuth"
+
 import BottomMenu from "../ui/layout/bottom-menu/BottomMenu"
 
 import PrivateNavigator from "./PrivateNavigator"
@@ -31,7 +33,7 @@ const Navigation: FC = () => {
 		}
 	}, [])
 
-	// useCheckAuth(currentRoute)
+	useCheckAuth(currentRoute)
 
 	return (
 		<>
