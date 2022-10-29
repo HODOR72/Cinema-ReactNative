@@ -7,7 +7,7 @@ import { EnumSecureStore } from "@/shared/types/auth.interface"
 
 import { errorCatch } from "@/services/api/error.api"
 import { getNewTokens } from "@/services/api/helper.auth"
-import { getAccessToken } from "@/services/auth/auth.helpers"
+import { getAccessToken } from "@/services/auth/auth.helper"
 import { AuthService } from "@/services/auth/auth.service"
 
 export const useCheckAuth = (routeName?: string) => {
@@ -27,7 +27,8 @@ export const useCheckAuth = (routeName?: string) => {
 				}
 			}
 		}
-		checkAccessToken()
+
+		let ignore = checkAccessToken()
 	}, [])
 
 	useEffect(() => {
@@ -39,6 +40,6 @@ export const useCheckAuth = (routeName?: string) => {
 			}
 		}
 
-		checkRefreshToken()
+		let ignore = checkRefreshToken()
 	}, [routeName])
 }

@@ -2,7 +2,7 @@ import axios from "axios"
 
 import { API_URL } from "@/config/api.config"
 
-import { deleteTokensStorage, getAccessToken } from "../auth/auth.helpers"
+import { deleteTokensStorage, getAccessToken } from "../auth/auth.helper"
 
 import { errorCatch } from "./error.api"
 import { getNewTokens } from "./helper.auth"
@@ -27,7 +27,8 @@ instance.interceptors.response.use(
 	config => config,
 	async error => {
 		const originalRequest = error.config
-
+		console.log(1)
+		console.log(error)
 		if (
 			(error.response.status === 401 ||
 				errorCatch(error) === "jwt expired" ||

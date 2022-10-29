@@ -7,17 +7,21 @@ import { Button, DismissKeyboard, Loader } from "@/components/ui"
 import { IAuthFormData } from "@/shared/types/auth.interface"
 
 import AuthFields from "./AuthFields"
+import { useAuthMutations } from "./useAuthMutations"
 
 const Auth: FC = () => {
 	const [isReg, setIsReg] = useState(false)
 
-	const onSubmit: SubmitHandler<IAuthFormData> = ({ email, password }) => {}
-
-	const isLoading = false
-
 	const { handleSubmit, reset, control } = useForm<IAuthFormData>({
 		mode: "onChange"
 	})
+
+	const { isLoading, registerSync, loginSync } = useAuthMutations(reset)
+	
+	const onSubmit: SubmitHandler<IAuthFormData> = data => {
+		if (isReg) registerSync(data)
+		else loginSync(data)
+	}
 
 	return (
 		<DismissKeyboard>
@@ -32,7 +36,7 @@ const Auth: FC = () => {
 						<>
 							<AuthFields control={control} isPassRequired />
 
-							<Button onPress={() => handleSubmit(onSubmit)} icon={"film"}>
+							<Button onPress={handleSubmit(onSubmit)} icon={"film"}>
 								Go to watch
 							</Button>
 

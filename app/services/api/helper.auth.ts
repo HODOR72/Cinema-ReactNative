@@ -3,9 +3,9 @@ import { getItemAsync } from "expo-secure-store"
 
 import { EnumSecureStore, IAuthResponse } from "@/shared/types/auth.interface"
 
-import { API_URL, getAuthUrl } from "@/config/api.config"
+import { saveToStorage } from "@/services/auth/auth.helper"
 
-import { saveToStorage } from "../auth/auth.helpers"
+import { API_URL, getAuthUrl } from "@/config/api.config"
 
 export const getNewTokens = async () => {
 	try {
