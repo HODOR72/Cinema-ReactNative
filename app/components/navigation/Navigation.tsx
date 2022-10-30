@@ -8,7 +8,7 @@ import { useAuth } from "@/hooks/useAuth"
 
 import { useCheckAuth } from "@/providers/auth/useCheckAuth"
 
-import BottomMenu from "../ui/layout/bottom-menu/BottomMenu"
+import { BottomMenu } from "../ui"
 
 import PrivateNavigator from "./PrivateNavigator"
 
