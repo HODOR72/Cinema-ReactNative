@@ -1,19 +1,20 @@
-import { ComponentType } from "react";
-
+import { ComponentType } from 'react'
 
 export type TypeRootStackParamList = {
 	Auth: undefined
 	Home: undefined
-	Screen404: undefined
 	Profile: undefined
-	Search: undefined
-	Trending: undefined
 	Favorites: undefined
-	Actor: undefined
+	Trending: undefined
+	Search: undefined
+	Screen404: undefined
 	Movie: {
 		slug: string
 	}
 	Genre: {
+		slug: string
+	}
+	Actor: {
 		slug: string
 	}
 } & TypeRootStackAdminList
