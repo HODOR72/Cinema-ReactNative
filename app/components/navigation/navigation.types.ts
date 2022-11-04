@@ -9,6 +9,7 @@ export type TypeRootStackParamList = {
 	Search: undefined
 	Trending: undefined
 	Favorites: undefined
+	Actor: undefined
 	Movie: {
 		slug: string
 	}

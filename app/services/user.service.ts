@@ -1,4 +1,5 @@
 import { IAuthFormData } from "@/shared/types/auth.interface"
+import { IMovie, IMovieEditInput } from "@/shared/types/movie.interface"
 import { IUser, IUserEditInput } from "@/shared/types/user.interface"
 
 import { getUsersUrl } from "@/config/api.config"
@@ -22,6 +23,21 @@ export const UserService = {
 		return request<IUser>({
 			url: getUsersUrl("/profile"),
 			method: "GET"
+		})
+	},
+
+	async getFavorites() {
+		return request<IMovie[]>({
+			url: getUsersUrl("/profile/favorites"),
+			method: "GET"
+		})
+	},
+
+	async toggleFavorite(movieId: string) {
+		return request<IMovie[]>({
+			url: getUsersUrl("/profile/favorites"),
+			method: "PUT",
+			data: { movieId }
 		})
 	},
 

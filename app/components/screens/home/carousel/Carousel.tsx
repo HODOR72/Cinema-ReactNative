@@ -1,14 +1,50 @@
-import { IMovie } from '@/shared/types/movie.interface'
-import { FC } from 'react'
-import { Text, View, Image } from 'react-native'
+import { FC, useRef } from "react"
+import { Animated, Platform, View } from "react-native"
 
-const Carousel: FC<{movies: IMovie[]}> = ({movies}) => {
-	
+import { IMovie } from "@/shared/types/movie.interface"
+
+import { EMPTY_ITEM_SIZE, ITEM_SIZE } from "./carousel.constants"
+import CarouselItem from "./carouselItem/CarouselItem"
+
+const Carousel: FC<{ movies: IMovie[] }> = ({ movies }) => {
+	const scrollX = useRef(new Animated.Value(0)).current
+
 	return (
 		<View>
-			{movies && movies.map(movie => (
-				<Text className='text-white'>{movie.title}</Text>
-			))}
+			<Animated.FlatList
+				data={[
+					{ _id: "first" } as IMovie,
+					...movies,
+					{ _id: "last" } as IMovie
+				]}
+				keyExtractor={item => `key ${item._id}`}
+				showsHorizontalScrollIndicator={false}
+				horizontal
+				bounces={false}
+				renderToHardwareTextureAndroid
+				contentContainerStyle={{
+					alignItems: "center"
+				}}
+				scrollEventThrottle={16}
+				snapToInterval={ITEM_SIZE}
+				snapToAlignment='start'
+				decelerationRate={Platform.OS === "ios" ? 0 : 0.98}
+				onScroll={Animated.event(
+					[{ nativeEvent: { contentOffset: { x: scrollX } } }],
+					{ useNativeDriver: true }
+				)}
+				renderItem={({ item: movie, index }) =>
+					movie?.slug ? (
+						<CarouselItem movie={movie} index={index} scrollX={scrollX} />
+					) : (
+						<View
+							style={{
+								width: EMPTY_ITEM_SIZE
+							}}
+						/>
+					)
+				}
+			/>
 		</View>
 	)
 }

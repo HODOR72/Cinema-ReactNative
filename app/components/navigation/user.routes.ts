@@ -1,31 +1,50 @@
-import { Auth, Favorites, Home, Profile, Search, Trending } from "../screens"
+import {
+	Actor,
+	Favorites,
+	Genre,
+	Home,
+	Movie,
+	Profile,
+	Search,
+	Trending
+} from '../screens'
 
-import { adminRoutes } from "./admin.routes"
-import { IRoute } from "./navigation.types"
+import { adminRoutes } from './admin.routes'
+import { IRoute } from './navigation.types'
 
 export const userRoutes: IRoute[] = [
 	{
-		name: "Home",
+		name: 'Home',
 		component: Home
 	},
-	// {
-	// 	name: "Auth",
-	// 	component: Auth
-	// },
 	{
-		name: "Favorites",
+		name: 'Favorites',
 		component: Favorites
 	},
 	{
-		name: "Profile",
+		name: 'Profile',
 		component: Profile
 	},
 	{
-		name: "Trending",
+		name: 'Trending',
 		component: Trending
 	},
+
 	{
-		name: "Search",
+		name: 'Genre',
+		component: Genre
+	},
+	{
+		name: 'Movie',
+		component: Movie
+	},
+
+	{
+		name: 'Actor',
+		component: Actor
+	},
+	{
+		name: 'Search',
 		component: Search
 	}
 ]
