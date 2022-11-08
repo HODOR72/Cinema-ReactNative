@@ -1,8 +1,7 @@
 import { FC } from 'react'
 import { ListRenderItemInfo, Text, View } from 'react-native'
 
-import { Loader } from '@/components/ui'
-import HorizontalList from '@/components/ui/HorizontalList'
+import { HorizontalList, Loader } from '@/components/ui'
 import MovieItem from '@/components/ui/movie/movie-item/MovieItem'
 
 import { IMovie } from '@/shared/types/movie.interface'

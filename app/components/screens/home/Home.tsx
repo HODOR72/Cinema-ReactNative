@@ -1,9 +1,9 @@
-import React, { FC } from "react"
+import { FC } from 'react'
 
-import { Layout, Loader } from "@/components/ui"
+import { Layout, Loader } from '@/components/ui'
 
-import Carousel from "./carousel/Carousel"
-import { useGetAllMovies } from "./useGetAllMovies"
+import Carousel from './carousel/Carousel'
+import { useGetAllMovies } from './useGetAllMovies'
 
 const Home: FC = () => {
 	const { movies, isLoading } = useGetAllMovies()

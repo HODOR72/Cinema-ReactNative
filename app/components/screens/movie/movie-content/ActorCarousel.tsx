@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { Image, ListRenderItemInfo, Pressable, Text, View } from 'react-native'
 
-import HorizontalList from '@/components/ui/HorizontalList'
+import { HorizontalList } from '@/components/ui'
 
 import { useTypedNavigation } from '@/hooks/useTypedNavigation'
 

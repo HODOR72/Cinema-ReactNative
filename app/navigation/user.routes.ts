@@ -7,7 +7,7 @@ import {
 	Profile,
 	Search,
 	Trending
-} from '../screens'
+} from '../components/screens'
 
 import { adminRoutes } from './admin.routes'
 import { IRoute } from './navigation.types'

@@ -1,5 +1,5 @@
-import { IActor } from "./actor.interface"
-import { IGenre } from "./genre.interface"
+import { IActor } from './actor.interface'
+import { IGenre } from './genre.interface'
 
 export interface IParameters {
 	year: number
@@ -20,4 +20,4 @@ export interface IMovie {
 	slug: string
 }
 
-export interface IMovieEditInput extends Omit<IMovie, "_id"> {}
+export interface IMovieEditInput extends Omit<IMovie, '_id'> {}

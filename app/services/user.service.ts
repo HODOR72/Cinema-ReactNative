@@ -1,16 +1,16 @@
-import { IAuthFormData } from "@/shared/types/auth.interface"
-import { IMovie, IMovieEditInput } from "@/shared/types/movie.interface"
-import { IUser, IUserEditInput } from "@/shared/types/user.interface"
+import { IAuthFormData } from '@/shared/types/auth.interface'
+import { IMovie, IMovieEditInput } from '@/shared/types/movie.interface'
+import { IUser, IUserEditInput } from '@/shared/types/user.interface'
 
-import { getUsersUrl } from "@/config/api.config"
+import { getUsersUrl } from '@/config/api.config'
 
-import { request } from "./api/request.api"
+import { request } from './api/request.api'
 
 export const UserService = {
 	async getAll(searchTerm?: string) {
 		return request<IUser[]>({
-			url: getUsersUrl(""),
-			method: "GET",
+			url: getUsersUrl(''),
+			method: 'GET',
 			params: searchTerm
 				? {
 						searchTerm
@@ -21,22 +21,22 @@ export const UserService = {
 
 	async getProfile() {
 		return request<IUser>({
-			url: getUsersUrl("/profile"),
-			method: "GET"
+			url: getUsersUrl('/profile'),
+			method: 'GET'
 		})
 	},
 
 	async getFavorites() {
 		return request<IMovie[]>({
-			url: getUsersUrl("/profile/favorites"),
-			method: "GET"
+			url: getUsersUrl('/profile/favorites'),
+			method: 'GET'
 		})
 	},
 
 	async toggleFavorite(movieId: string) {
 		return request<IMovie[]>({
-			url: getUsersUrl("/profile/favorites"),
-			method: "PUT",
+			url: getUsersUrl('/profile/favorites'),
+			method: 'PUT',
 			data: { movieId }
 		})
 	},
@@ -44,14 +44,14 @@ export const UserService = {
 	async getById(_id: string) {
 		return request<IUser>({
 			url: getUsersUrl(`/${_id}`),
-			method: "GET"
+			method: 'GET'
 		})
 	},
 
 	async updateProfile(data: IAuthFormData) {
 		return request<IUser>({
 			url: getUsersUrl(`/profile`),
-			method: "PUT",
+			method: 'PUT',
 			data
 		})
 	},
@@ -59,14 +59,14 @@ export const UserService = {
 	async update(_id: string, data: IUserEditInput) {
 		return request<string>({
 			url: getUsersUrl(`/${_id}`),
-			method: "PUT",
+			method: 'PUT',
 			data
 		})
 	},
 	async deleteUser(_id: string) {
 		return request<string>({
 			url: getUsersUrl(`/${_id}`),
-			method: "DELETE"
+			method: 'DELETE'
 		})
 	}
 }

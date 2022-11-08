@@ -1,22 +1,22 @@
-import axios from "axios"
-import { getItemAsync } from "expo-secure-store"
+import axios from 'axios'
+import { getItemAsync } from 'expo-secure-store'
 
-import { EnumSecureStore, IAuthResponse } from "@/shared/types/auth.interface"
+import { EnumSecureStore, IAuthResponse } from '@/shared/types/auth.interface'
 
-import { saveToStorage } from "@/services/auth/auth.helper"
+import { saveToStorage } from '@/services/auth/auth.helper'
 
-import { API_URL, getAuthUrl } from "@/config/api.config"
+import { API_URL, getAuthUrl } from '@/config/api.config'
 
 export const getNewTokens = async () => {
 	try {
 		const refreshToken = await getItemAsync(EnumSecureStore.REFRESH_TOKEN)
 
 		const response = await axios.post<string, { data: IAuthResponse }>(
-			API_URL + getAuthUrl("/login/access-token"),
+			API_URL + getAuthUrl('/login/access-token'),
 			{ refreshToken },
 			{
 				headers: {
-					"Content-Type": "application/json"
+					'Content-Type': 'application/json'
 				}
 			}
 		)

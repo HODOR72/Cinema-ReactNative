@@ -1,7 +1,8 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 
 import { Layout, Loader, NotFound } from '@/components/ui'
 import MovieCatalog from '@/components/ui/movie/catalog/MovieCatalog'
+
 import { useGenre } from './useGenre'
 
 const Genre: FC = () => {

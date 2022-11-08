@@ -1,9 +1,10 @@
-import { getColor } from "@/config/colors.config"
-import { Feather } from "@expo/vector-icons"
-import React, { FC } from "react"
-import { Pressable } from "react-native"
+import { Feather } from '@expo/vector-icons'
+import { FC } from 'react'
+import { Pressable } from 'react-native'
 
-import { IMenuItem, TypeNavigate } from "./menu.interface"
+import { getColor } from '@/config/colors.config'
+
+import { IMenuItem, TypeNavigate } from './menu.interface'
 
 interface IMenuItemProps {
 	item: IMenuItem
@@ -19,7 +20,7 @@ const MenuItem: FC<IMenuItemProps> = ({ currentRoute, item, nav }) => {
 			<Feather
 				name={item.iconName}
 				size={26}
-				color={isActive ? getColor("primary") : getColor("gray.400")}
+				color={isActive ? getColor('primary') : getColor('gray.400')}
 			/>
 		</Pressable>
 	)

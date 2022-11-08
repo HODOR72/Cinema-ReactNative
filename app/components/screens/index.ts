@@ -7,5 +7,5 @@ export { default as Screen404 } from './system/Screen404'
 export { default as Home } from './home/Home'
 export { default as Movie } from './movie/Movie'
 export { default as Actor } from './actor/Actor'
-export { default as Admin } from './admin/home/Admin'
 export { default as Auth } from './auth/Auth'
+

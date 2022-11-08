@@ -1,5 +1,4 @@
 export const SERVER_URL = 'http://192.168.0.202:4200'
-
 export const API_URL = `${SERVER_URL}/api`
 
 export const getAuthUrl = (string: string) => `/auth${string}`

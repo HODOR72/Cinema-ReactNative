@@ -1,6 +1,5 @@
 import { FC } from 'react'
-import { useForm } from 'react-hook-form'
-import { Text, View } from 'react-native'
+import { View } from 'react-native'
 
 import { Field, Heading, Layout, Loader } from '@/components/ui'
 import MovieCatalog from '@/components/ui/movie/catalog/MovieCatalog'

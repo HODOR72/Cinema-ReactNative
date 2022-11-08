@@ -1,16 +1,16 @@
-import axios from "axios"
+import axios from 'axios'
 
-import { API_URL } from "@/config/api.config"
+import { API_URL } from '@/config/api.config'
 
-import { deleteTokensStorage, getAccessToken } from "../auth/auth.helper"
+import { deleteTokensStorage, getAccessToken } from '../auth/auth.helper'
 
-import { errorCatch } from "./error.api"
-import { getNewTokens } from "./helper.auth"
+import { errorCatch } from './error.api'
+import { getNewTokens } from './helper.auth'
 
 const instance = axios.create({
 	baseURL: API_URL,
 	headers: {
-		"Content-Type": "application/json"
+		'Content-Type': 'application/json'
 	}
 })
 
@@ -31,8 +31,8 @@ instance.interceptors.response.use(
 		console.log(error)
 		if (
 			(error.response.status === 401 ||
-				errorCatch(error) === "jwt expired" ||
-				errorCatch(error) === "jwt must be provided") &&
+				errorCatch(error) === 'jwt expired' ||
+				errorCatch(error) === 'jwt must be provided') &&
 			error.config &&
 			!error.config._isRetry
 		) {
@@ -41,7 +41,7 @@ instance.interceptors.response.use(
 				await getNewTokens()
 				return instance.request(originalRequest)
 			} catch (error) {
-				if (errorCatch(error) === "jwt expired") await deleteTokensStorage()
+				if (errorCatch(error) === 'jwt expired') await deleteTokensStorage()
 			}
 		}
 

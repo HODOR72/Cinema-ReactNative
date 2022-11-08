@@ -1,6 +1,6 @@
-import { NavigationProp, useNavigation } from "@react-navigation/native"
+import { NavigationProp, useNavigation } from '@react-navigation/native'
 
-import { TypeRootStackParamList } from "@/components/navigation/navigation.types"
+import { TypeRootStackParamList } from '@/navigation/navigation.types'
 
 export const useTypedNavigation = () =>
 	useNavigation<NavigationProp<TypeRootStackParamList>>()

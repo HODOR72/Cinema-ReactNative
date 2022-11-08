@@ -1,14 +1,14 @@
-import { IMovie, IMovieEditInput } from "@/shared/types/movie.interface"
+import { IMovie, IMovieEditInput } from '@/shared/types/movie.interface'
 
-import { getMoviesUrl } from "@/config/api.config"
+import { getMoviesUrl } from '@/config/api.config'
 
-import { request } from "./api/request.api"
+import { request } from './api/request.api'
 
 export const MovieService = {
 	async getAll(searchTerm?: string) {
 		return request<IMovie[]>({
-			url: getMoviesUrl(""),
-			method: "GET",
+			url: getMoviesUrl(''),
+			method: 'GET',
 			params: searchTerm
 				? {
 						searchTerm
@@ -19,29 +19,29 @@ export const MovieService = {
 
 	async getMostPopularMovies() {
 		return request<IMovie[]>({
-			url: getMoviesUrl("/most-popular"),
-			method: "GET"
+			url: getMoviesUrl('/most-popular'),
+			method: 'GET'
 		})
 	},
 
 	async getBySlug(slug: string) {
-		return request<IMovie[]>({
+		return request<IMovie>({
 			url: getMoviesUrl(`/by-slug/${slug}`),
-			method: "GET"
+			method: 'GET'
 		})
 	},
 
 	async getByActor(actorId: string) {
 		return request<IMovie[]>({
 			url: getMoviesUrl(`/by-actor/${actorId}`),
-			method: "GET"
+			method: 'GET'
 		})
 	},
 
 	async getByGenres(genreIds: string[]) {
 		return request<IMovie[]>({
-			url: getMoviesUrl("/by-genres"),
-			method: "POST",
+			url: getMoviesUrl('/by-genres'),
+			method: 'POST',
 			data: { genreIds }
 		})
 	},
@@ -49,21 +49,21 @@ export const MovieService = {
 	async getById(_id: string) {
 		return request<IMovieEditInput>({
 			url: getMoviesUrl(`/${_id}`),
-			method: "GET"
+			method: 'GET'
 		})
 	},
 
 	async create() {
 		return request<string>({
-			url: getMoviesUrl(""),
-			method: "POST"
+			url: getMoviesUrl(''),
+			method: 'POST'
 		})
 	},
 
 	async update(_id: string, data: IMovieEditInput) {
 		return request<string>({
 			url: getMoviesUrl(`/${_id}`),
-			method: "PUT",
+			method: 'PUT',
 			data
 		})
 	},
@@ -71,14 +71,14 @@ export const MovieService = {
 	async delete(_id: string) {
 		return request<string>({
 			url: getMoviesUrl(`/${_id}`),
-			method: "DELETE"
+			method: 'DELETE'
 		})
 	},
 
 	async updateCountOpened(slug: string) {
 		return request<string>({
-			url: getMoviesUrl("/update-count-opened"),
-			method: "PUT",
+			url: getMoviesUrl('/update-count-opened'),
+			method: 'PUT',
 			data: {
 				slug
 			}
